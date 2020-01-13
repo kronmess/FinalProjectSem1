@@ -61,10 +61,7 @@ class StoreMenu:
         self.slingDesc = self.slingDescFont.render('It will work for now.',True,white)
         self.slingDescRect = self.slingDesc.get_rect(center = ((205,70)))
         self.buySlingOutline = pygame.Rect((200,82),(170,35))
-        self.slingsOwnedText = self.slingsOwnedFont.render(str(self.slingsOwned) + ' ' + "Owned", True , white)
-        self.slingsOwnedRect = self.slingsOwnedText.get_rect(center=((110,100)))
-        self.buySlingText = self.slingsOwnedFont.render('BUY: ' + '$' +str(self.slingsPrice),True, white)
-        self.buySlingRect = self.buySlingText.get_rect(center = ((285,100)))
+        
 
         #Revolver text display
         self.revolverTitleFont = pygame.font.Font('press_start.ttf',18)
@@ -75,10 +72,7 @@ class StoreMenu:
         self.revolverDesc = self.slingDescFont.render('Ol reliable six shooter.',True,white)
         self.revolverDescRect = self.slingDesc.get_rect(center = ((185,165)))
         self.buyRevolverOutline = pygame.Rect((200,180),(170,35))
-        self.revolversOwnedText = self.revolversOwnedFont.render(str(self.revolversOwned) + ' ' + "Owned", True , white)
-        self.revolversOwnedRect = self.slingsOwnedText.get_rect(center=((110,200)))
-        self.buyRevolverText = self.slingsOwnedFont.render('BUY: ' + '$' +str(self.revolversPrice),True, white)
-        self.buyRevolverRect = self.buyRevolverText.get_rect(center = ((285,200)))
+        
 
         #Rifle text display
         self.rifleTitleFont = pygame.font.Font('press_start.ttf',18)
@@ -89,10 +83,7 @@ class StoreMenu:
         self.rifleDesc = self.slingDescFont.render('SSSSSSSSSKKKKRRRAAAAAAA.',True,white)
         self.rifleDescRect = self.slingDesc.get_rect(center = ((185,265)))
         self.buyRifleOutline = pygame.Rect((200,280),(170,35))
-        self.riflesOwnedText = self.riflesOwnedFont.render(str(self.riflesOwned) + ' ' + "Owned", True , white)
-        self.riflesOwnedRect = self.riflesOwnedText.get_rect(center=((110,300)))
-        self.buyRifleText = self.riflesOwnedFont.render('BUY: ' + '$' +str(self.riflesPrice),True, white)
-        self.buyRifleRect = self.buyRifleText.get_rect(center = ((285,300)))
+       
 
         #Minigun text display 
         self.minigunTitleFont = pygame.font.Font('press_start.ttf',18)
@@ -103,10 +94,7 @@ class StoreMenu:
         self.minigunDesc = self.minigunDescFont.render("That's a lot of bullets.",True,white)
         self.minigunDescRect = self.minigunDesc.get_rect(center = ((205,365)))
         self.buyMinigunOutline = pygame.Rect((200,380),(170,35))
-        self.minigunsOwnedText = self.minigunsOwnedFont.render(str(self.riflesOwned) + ' ' + "Owned", True , white)
-        self.minigunsOwnedRect = self.minigunsOwnedText.get_rect(center=((110,400)))
-        self.buyMinigunText = self.minigunsOwnedFont.render('BUY: ' + '$' +str(self.minigunsPrice),True, white)
-        self.buyMinigunRect = self.buyMinigunText.get_rect(center = ((285,400)))
+        
 
 
     def update(self):
@@ -114,24 +102,35 @@ class StoreMenu:
         pygame.draw.rect(win,white, self.menuRectOutline, 5)
 
         #updating values for sling
+        self.slingsOwnedText = self.slingsOwnedFont.render(str(self.slingsOwned) + ' ' + "Owned", True , white)
+        self.slingsOwnedRect = self.slingsOwnedText.get_rect(center=((110,100)))
+        self.buySlingText = self.slingsOwnedFont.render('BUY: ' + '$' +str(self.slingsPrice),True, white)
+        self.buySlingRect = self.buySlingText.get_rect(center = ((285,100)))
         pygame.draw.rect(win,white,self.slingOutline, 5)
         pygame.draw.rect(win,white,self.buySlingOutline, 5)
         win.blit(self.slingTitle,self.slingTitleRect)
         win.blit(self.slingDesc,self.slingDescRect)
         win.blit(self.slingsOwnedText,self.slingsOwnedRect)
         win.blit(self.buySlingText,self.buySlingRect)
-
+        
         #updating values for revolver
-
+        self.revolversOwnedText = self.revolversOwnedFont.render(str(self.revolversOwned) + ' ' + "Owned", True , white)
+        self.revolversOwnedRect = self.slingsOwnedText.get_rect(center=((110,200)))
+        self.buyRevolverText = self.slingsOwnedFont.render('BUY: ' + '$' +str(self.revolversPrice),True, white)
+        self.buyRevolverRect = self.buyRevolverText.get_rect(center = ((285,200)))
         pygame.draw.rect(win,white,self.revolverOutline, 5)
         pygame.draw.rect(win,white,self.buyRevolverOutline, 5)
         win.blit(self.revolverTitle,self.revolverTitleRect)
         win.blit(self.revolverDesc,self.revolverDescRect)
         win.blit(self.revolversOwnedText,self.revolversOwnedRect)
-        win.blit(self.buyRevolverText,self.buyRevolverRect)   
+        win.blit(self.buyRevolverText,self.buyRevolverRect)
+           
 
         #updating values for rifle
-
+        self.riflesOwnedText = self.riflesOwnedFont.render(str(self.riflesOwned) + ' ' + "Owned", True , white)
+        self.riflesOwnedRect = self.riflesOwnedText.get_rect(center=((110,300)))
+        self.buyRifleText = self.riflesOwnedFont.render('BUY: ' + '$' +str(self.riflesPrice),True, white)
+        self.buyRifleRect = self.buyRifleText.get_rect(center = ((285,300)))
         pygame.draw.rect(win,white,self.rifleOutline, 5)
         pygame.draw.rect(win,white,self.buyRifleOutline, 5)
         win.blit(self.rifleTitle,self.rifleTitleRect)
@@ -139,7 +138,12 @@ class StoreMenu:
         win.blit(self.riflesOwnedText,self.riflesOwnedRect)
         win.blit(self.buyRifleText,self.buyRifleRect) 
 
-        #updating values for minigun 
+        #updating values for minigun
+        self.minigunsOwnedText = self.minigunsOwnedFont.render(str(self.riflesOwned) + ' ' + "Owned", True , white)
+        self.minigunsOwnedRect = self.minigunsOwnedText.get_rect(center=((110,400)))
+        self.buyMinigunText = self.minigunsOwnedFont.render('BUY: ' + '$' +str(self.minigunsPrice),True, white)
+        self.buyMinigunRect = self.buyMinigunText.get_rect(center = ((285,400)))
+ 
         pygame.draw.rect(win,white,self.minigunOutline, 5)
         pygame.draw.rect(win,white,self.buyMinigunOutline, 5)
         win.blit(self.minigunTitle,self.minigunTitleRect)
