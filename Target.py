@@ -1,5 +1,5 @@
 import pygame
-from DisplayText import DisplayText
+
 
 #creating game window
 win = pygame.display.set_mode((950, 600))
@@ -43,7 +43,15 @@ class Target():
         self.text = [line.replace('RIFLES_PRICE: ', '') for line in self.text]
         self.text = [line.replace('MINIGUNS: ', '') for line in self.text]
         self.text = [line.replace('MINIGUNS_PRICE: ', '') for line in self.text]
-        self.shotCount = int(self.text[0]) 
+        self.shotCount = int(self.text[0])
+        self.slingsOwned = int(self.text[2]) 
+        self.slingsPrice = int(self.text[3])
+        self.revolversOwned = int(self.text[4])
+        self.revolversPrice = int(self.text[5])
+        self.riflesOwned = int(self.text[6])
+        self.riflesPrice = int(self.text[7])
+        self.minigunsOwned = int(self.text[8])
+        self.minigunsPrice = int(self.text[9]) 
         file.close()
          
     def draw(self):
@@ -54,7 +62,10 @@ class Target():
         shotCountDisplay = Font.render(self.commashotCount, True , lightBlue)
         shotcount_rect = shotCountDisplay.get_rect(center=(525,70))
         win.blit(shotCountDisplay,shotcount_rect)
-        money_shot_text = DisplayText('MONEY:',lightBlue,475,15)
+        Font = pygame.font.Font('press_start.ttf',20)
+        text = Font.render('MONEY:', True, lightBlue)
+        win.blit(text,[475,15])
+        
 
 
 
