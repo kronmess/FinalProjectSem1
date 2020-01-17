@@ -5,75 +5,32 @@ from Target import lightBlue
 from Target import crimson
 from Target import red
 from Target import white
-from StoreItem import StoreItem
-#creating game window
-win = pygame.display.set_mode((950, 600))
+from Target import win
+from Menu import Menu
+
 
 #instance of target class
 target1 = Target(430,200,1)
 pygame.init()
 
 
-
-
 class StoreMenu:
     def __init__(self):
-        self.menuRectFill = pygame.Rect((25,20),(350,400))
-        self.menuRectOutline = pygame.Rect((25,20),(350,400))
-
-        #SLINGSHOT
-        self.slingshot = StoreItem()
-
-        #REVOLVER
-        self.revolver = StoreItem()
-
-        #RIFLE
-        self.rifle = StoreItem()
-
-        #MINIGUN
-        self.minigun = StoreItem()
+        self.slingshot = Menu(target1.slingsOwned,target1.slingsPrice,'SLINGSHOT - 1 BPS', 'It will work for now',pygame.Rect((25,20),(350,100)),pygame.Rect((200,80),(170,35)),50,35,50,60,60,90,230,95)
+        self.revolver = Menu(target1.revolversOwned,target1.revolversPrice,'REVOLVER - 6 BPS', 'Ol reliable six shooter.',pygame.Rect((25,120),(350,100)),pygame.Rect((200,180),(170,35)),50,135,50,160,60,190,230,195)
+        self.rifle = Menu(target1.riflesOwned,target1.riflesPrice,'RIFLE - 30 BPS','SSSSSSSSSKKKKRRRAAAAAAA.',pygame.Rect((25,220),(350,100)),pygame.Rect((200,280),(170,35)),50,235,50,260,60,290,230,295)
+        self.minigun = Menu(target1.minigunsOwned,target1.minigunsPrice,'MINIGUN - 100 BPS',"That's a lot of bulets.",pygame.Rect((25,320),(350,100)),pygame.Rect((200,380),(170,35)),50,335,50,360,60,390,230,395)
         
     def update(self):
-        #updating values for sling
-        self.slingshot.make_rect(win,white,pygame.Rect((25,20),(350,100)),9)
-        self.slingshot.make_rect(win,red,pygame.Rect((25,20),(350,100)))
-        self.buySlingOutline = pygame.Rect((200,80),(170,35))
-        self.slingshot.make_rect(win,white,self.buySlingOutline,6)
-        self.slingshot.make_rect(win,red,pygame.Rect((200,80),(170,35)))
-        self.slingshot.draw_text('SLINGSHOT - 1 BPS', white,50,35,18)
-        self.slingshot.draw_text('It will work for now', white,55,60,14)
-        self.slingshot.draw_text(str(target1.slingsOwned) + ' ' + 'Owned', white,60,90,12)
-        self.slingshot.draw_text('BUY: ' + '$' +str(target1.slingsPrice),white,230,95,12)
-
-       #updating values for revolver
-        self.revolver.make_rect(win,white,pygame.Rect((25,120),(350,100)),9)
-        self.revolver.make_rect(win,red,pygame.Rect((25,120),(350,100)))
-        self.buyRevolverOutline = pygame.Rect((200,180),(170,35))
-        self.revolver.make_rect(win,white,self.buyRevolverOutline,6)
-        self.revolver.make_rect(win,red,pygame.Rect((200,180),(170,35)))
-        self.revolver.draw_text('REVOLVER - 6 BPS', white,50,135,18)
-        self.revolver.draw_text('Ol reliable six shooter.', white,35,160,14)
-        self.revolver.draw_text(str(target1.revolversOwned) + ' ' + 'Owned', white,60,190,12)
-        self.slingshot.draw_text('BUY: ' + '$' +str(target1.revolversPrice),white,230,195,12)
-
-        #updating values for rifle
-        self.revolver.make_rect(win,white,pygame.Rect((25,220),(350,100)),9)
-        self.revolver.make_rect(win,red,pygame.Rect((25,220),(350,100)))
-        self.buyRifleOutline = pygame.Rect((200,280),(170,35))
-        self.revolver.make_rect(win,white,self.buyRifleOutline,6)
-        self.revolver.make_rect(win,red,pygame.Rect((200,280),(170,35)))
-        self.revolver.draw_text('RIFLE - 30 BPS', white,50,235,18)
-        self.revolver.draw_text('SSSSSSSSSKKKKRRRAAAAAAA.', white,35,260,14)
-        self.revolver.draw_text(str(target1.riflesOwned) + ' ' + 'Owned', white,60,290,12)
-        self.slingshot.draw_text('BUY: ' + '$' +str(target1.riflesPrice),white,230,295,12)
-        
-        #updating values for rifle
-        self.minigun.make_rect(win,white,pygame.Rect((25,320),(350,100)),9)
-        self.minigun.make_rect(win,red,pygame.Rect((25,320),(350,100)))
-        self.buyMinigunOutline = pygame.Rect((200,380),(170,35))
-        self.revolver.make_rect(win,white,self.buyMinigunOutline,6)
-        self.revolver.make_rect(win,red,pygame.Rect((200,380),(170,35)))
-        self.revolver.draw_text('MINIGUN - 100 BPS', white,50,335,18)
-        self.revolver.draw_text("That's a lot of bulets.", white,35,360,14)
-        self.revolver.draw_text(str(target1.minigunsOwned) + ' ' + 'Owned', white,60,390,12)
-        self.slingshot.draw_text('BUY: ' + '$' +str(target1.minigunsPrice),white,225,395,12)
+        self.slingshot.draw()
+        self.revolver.draw()
+        self.rifle.draw()
+        self.minigun.draw()
+        self.slingshot.stock = target1.slingsOwned
+        self.slingshot.price = target1.slingsPrice
+        self.revolver.stock = target1.revolversOwned
+        self.revolver.price = target1.revolversPrice
+        self.rifle.stock = target1.riflesOwned
+        self.rifle.price = target1.riflesPrice
+        self.minigun.stock = target1.minigunsOwned
+        self.minigun.price = target1.minigunsPrice
