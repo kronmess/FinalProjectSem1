@@ -27,6 +27,7 @@ class Menu:
         self.stock_y = stock_y
         self.price_x = price_x
         self.price_y = price_y
+        
     def draw(self):
         make_rect(win,white,self.base,9)
         make_rect(win,red,self.base)
