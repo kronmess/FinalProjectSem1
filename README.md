@@ -1,7 +1,11 @@
 Main File: project.py
 
-Classes: Target.py
-         DisplayText.py
+Classes: 
+         
+         Target.py
+
+         Menu.py
+         
          StoreMenu.py
          
 Sound files: sounds/chaching.wav,pew.wav
