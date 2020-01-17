@@ -14,7 +14,7 @@ pygame.init()
 black = (0,0,0)
 red = (200,0,0)
 white = (255,255,255)
-
+lightBlue = (0,0,255)
 #class to create target object
 class Target():
     def __init__(self,x,y,targetValue):

@@ -31,11 +31,7 @@ storemenu1 = StoreMenu()
 #Definition of BPS
 BPS = 0
 BPS = int(target1.text[1])
-commaBPS = '{:,}'.format(BPS)
-BPSFont = pygame.font.Font('press_start.ttf',20)
-BPSDisplay = BPSFont.render(commaBPS , True, lightBlue)
-BPSRect = BPSDisplay.get_rect(center=(525,100))
-win.blit(BPSDisplay,BPSRect)
+
 
  
 # Main Game Loop           
