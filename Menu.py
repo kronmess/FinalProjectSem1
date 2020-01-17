@@ -3,14 +3,17 @@ from Target import red
 from Target import white
 from Target import win
 
+#function used to draw in text
 def draw_text(message,color,x,y,font_size):
     Font = pygame.font.Font('press_start.ttf',font_size)
     text = Font.render(message, True, color)
     win.blit(text,[x,y])
 
+#function used to draw rectangle
 def make_rect(surface,color,rectangle,thickness= 0):
     pygame.draw.rect(surface,color,rectangle,thickness)
 
+#class used to define item property
 class Menu:
     def __init__(self,stock,price,name,description,base,buybase,title_x,title_y,description_x,description_y,stock_x,stock_y,price_x,price_y):
         self.stock = stock
@@ -27,7 +30,7 @@ class Menu:
         self.stock_y = stock_y
         self.price_x = price_x
         self.price_y = price_y
-        
+    #draws in item values
     def draw(self):
         make_rect(win,white,self.base,9)
         make_rect(win,red,self.base)

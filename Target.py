@@ -12,9 +12,7 @@ pygame.init()
 
 #colors
 black = (0,0,0)
-lightBlue = (0,0,255)
 red = (200,0,0)
-crimson = (153,0,0)
 white = (255,255,255)
 
 #class to create target object
@@ -53,7 +51,8 @@ class Target():
         self.minigunsOwned = int(self.text[8])
         self.minigunsPrice = int(self.text[9]) 
         file.close()
-         
+
+    #draws in target values     
     def draw(self):
         win.fill(black)
         win.blit(self.targetImage,(self.x,self.y))
